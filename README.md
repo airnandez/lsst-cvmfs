@@ -49,8 +49,9 @@ The configuration of CernVM FS client to use the binary distribution of LSST sof
 	
 	The next steps modify the default configuration to the specifics of LSST repository hosted by CC-IN2P3.
 
-* Create file `/etc/cvmfs/keys/lsst.in2p3.fr.pub` with contents:
+* Create file `/etc/cvmfs/keys/lsst.in2p3.fr.pub`:
   
+  		$ cat > /etc/cvmfs/keys/lsst.in2p3.fr.pub <<-EOF
   		-----BEGIN PUBLIC KEY-----
 		MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxpOBi4YSHya9NLFyjwko
 		1QGO0cEbcN6JKMht8bfqUOsH/gdov8sUIlZ3XOzAqwHmb/F76QbtaftDXrJqwCXF
@@ -60,13 +61,19 @@ The configuration of CernVM FS client to use the binary distribution of LSST sof
 		kPIRNLPW8ZkMHFct8IvUUPNFgcEYflqBtB6HmWJcVVZDTE600pgdir+Pdlqd17XF
 		AwIDAQAB
 		-----END PUBLIC KEY-----
+		EOF
 		
 	This text file contains the public key of CC-IN2P3's software repository for LSST. The CernVM FS client running on your machine needs this key to verify that it is talking to the expected server.
 			
-* Create the file `/etc/cvmfs/default.local` with contents:
+* Create the file `/etc/cvmfs/default.local`:
   		
+  		$ cat > /etc/cvmfs/default.local <<-EOF
   		CVMFS_REPOSITORIES=lsst.in2p3.fr
   		CVMFS_QUOTA_LIMIT=20000
+  		# Default cache directory is '/var/lib/cvmfs' but you can change it by uncommenting
+  		# and customizing the line below
+  		# CVMFS_CACHE_BASE=/cvmfscache
+  		EOF
   	
   	This file tells the CernVM FS client to mount the repository named `lsst.in2p3.fr` and to use a local disk cache of up to 20.000 MB. By default, the local cache is located at `/var/lib/cvmfs` but you can use another directory on your local disk. For instance, if you wish CernVM FS cache to be located under `/cvmfscache` add the line below:
   	
@@ -74,11 +81,13 @@ The configuration of CernVM FS client to use the binary distribution of LSST sof
   	 	
   	You can also modify the size of the disk cache CernVM FS should use. Please bear in mind that the current LSST stack (v9.2) requires about 7GB of disk space. As you may want to use a few releases simultaneously we think 20.000MB is a reasonable starting point but feel free to adapt it as you consider suitable for your particular needs.
   		
-* Create file `/etc/cvmfs/config.d/lsst.in2p3.fr.conf` with contents:
+* Create file `/etc/cvmfs/config.d/lsst.in2p3.fr.conf`:
 
+   		$ cat > /etc/cvmfs/config.d/lsst.in2p3.fr.conf <<-EOF
    		CVMFS_SERVER_URL=http://cccrnvmfs01.in2p3.fr/cvmfs/lsst.in2p3.fr
    		CVMFS_HTTP_PROXY="http://cctbcrnvmfsli01.in2p3.fr:3128"
    		CVMFS_PUBLIC_KEY=/etc/cvmfs/keys/lsst.in2p3.fr.pub
+   		EOF
    		
 * Set the permissions of the files created in the previous steps:
 
