@@ -26,9 +26,9 @@ To download the software from CERN's repository and install it, as `root` do:
 	# rpm -vi ./cvmfs-2.1.19-1.el5.x86_64.rpm  ./cvmfs-keys-1.5-1.noarch.rpm
 
 ### Installing on Ubuntu 14.04 (64 bits)
-Some packages are necessary or recommended on Ubuntu. To install them do (as `root`):
+Some packages are either necessary or recommended on Ubuntu. To install them do (as `root`):
 
-    # apt-get install autofs attr gdb git
+    # apt-get install autofs attr gdb git sysv-rc-conf
     
 Download and install CernVM FS (as `root`):
     
@@ -75,7 +75,7 @@ The configuration of CernVM FS client to use the binary distribution of LSST sof
   		# CVMFS_CACHE_BASE=/cvmfscache
   		EOF
   	
-  	This file tells the CernVM FS client to mount the repository named `lsst.in2p3.fr` and to use a local disk cache of up to 20.000 MB. By default, the local cache is located at `/var/lib/cvmfs` but you can use another directory on your local disk. For instance, if you wish CernVM FS cache to be located under `/cvmfscache` add the line below:
+  	This file tells the CernVM FS client to mount the repository named `lsst.in2p3.fr` and to use a local disk cache of up to 20.000 MB. By default, the local cache is located at `/var/lib/cvmfs` but you can use another directory on your local disk. For instance, if you wish CernVM FS cache to be located under `/cvmfscache` uncomment the line below:
   	
   	 	CVMFS_CACHE_BASE=/cvmfscache
   	 	
@@ -104,9 +104,13 @@ The configuration of CernVM FS client to use the binary distribution of LSST sof
 
 		# service autofs restart
 		
-	If not already done, you may want to configure your machine to start `autofs` at boot time:
+* Configure `autofs` to start at boot time. On Scientific Linux do (as `root`):
 	
 		# chkconfig autofs on
+		
+	and on Ubuntu, do (as `root`):
+	
+		# sysv-rc-conf autofs on
 		
 	This is necessary to automatically mount the remote repository under `/cvmfs/lsst.in2p3.fr` any time you access a file or directory under that namespace.
 		
