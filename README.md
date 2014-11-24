@@ -1,9 +1,11 @@
 # Introduction
-This document provides the steb-by-step instructions to configure your computer to use the binary distribution of the LSST software stack using [CernVM FS](http://cernvm.cern.ch/portal/filesystem).
+This document provides the steb-by-step instructions to configure your computer to use the binary distribution of the [LSST](http://www.lsst.org) software stack using [CernVM FS](http://cernvm.cern.ch/portal/filesystem).
 
 CERN's CernVM FS is a software component which allow you to mount (in read-only mode) a remote software repository, which will appear to your computer as if the software was locally installed. At [CC-IN2P3](http://cc.in2p3.fr) we prepared a binary distribution of LSST stack to be used through CernVM FS. You will find below the procedure for installing CernVM FS and configuring it to use LSST software.
 
-**WARNING** : please bear in mind that this work is experimental. Your feedback on how to improve it is very welcome. Scroll to the end of this document to know how you can provide feedback.
+Context and perspectives about this work can be found in [this presentation](https://speakerdeck.com/airnandez/experimenting-with-cernvm-fs-for-distributing-lsst-software).
+
+**WARNING** : *please bear in mind that this work is experimental. Your feedback on how to improve it is very welcome. Scroll to the end of this document to know how you can provide feedback.*
 
 # Expected Benefits
 With this method, you need to install and configure CernVM FS only once. Once this is done, when your computer is connected to the network, you will find the available versions of the LSST software stack under the local directory:
@@ -132,6 +134,7 @@ Please note that in order for this distribution mechanism to work for you, you n
 You should see a line containning `HTTP/1.0 200 OK` which indicates that your machine can talk to the relevant server.
 
 # Frequently Asked Questions
+
 * **How can I provide feedback?**
 
   Your feedback is very welcome. Please feel free to [open an issue](https://github.com/airnandez/lsst-cvmfs/issues).
@@ -143,6 +146,10 @@ You should see a line containning `HTTP/1.0 200 OK` which indicates that your ma
 * **Can I use my remote LSST software distribution while disconnected from the network?**
 
   The CernVM FS client caches all the file metadata and the contents of the accessed remote files in the local disk of your computer. If you have previously used the stack it is likely that the relevant files are locally available in your local disk, in which case, you may work while disconnected. However, we have not tested this thoroughly, so let us know how it works for you.
+  
+* **Can I use this for my Docker containers?**
+
+  Yes, you can configure your container for automatically mounting a read-only file system with LSST software stack ready to use. Sébastien Binet did exactly this, so you can just use as is or as a baseline for your own containers. You will find all the details [here](https://github.com/hepsw/docks/tree/master/cvmfs-lsst).
 
 # Credits
 This work was done by Fabio Hernandez from [IN2P3/CNRS computing center](http://cc.inp3.fr) (Lyon, France) with very valuable help from Vanessa Hammar who set up the CernVM FS server and proxy infrastructure.
