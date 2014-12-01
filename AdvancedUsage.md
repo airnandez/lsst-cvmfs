@@ -32,7 +32,7 @@ Once your environment is ready, you can start developing against the stack. Let'
 
 	```bash
 	$ cd $HOME
-	$ git clone git@git.lsstcorp.org:LSST/DMS/obs_cfht.git -b tickets/DM-1380`
+	$ git clone git@git.lsstcorp.org:LSST/DMS/obs_cfht.git -b tickets/DM-1380
 	$ cd obs_cfht
 	```
 	
