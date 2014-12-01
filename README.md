@@ -1,7 +1,7 @@
 # Introduction
 This document provides the steb-by-step instructions to configure your computer to use the binary distribution of the [LSST](http://www.lsst.org) software stack using [CernVM FS](http://cernvm.cern.ch/portal/filesystem).
 
-CERN's CernVM FS is a software component which allow you to mount (in read-only mode) a remote software repository, which will appear to your computer as if the software was locally installed. At [CC-IN2P3](http://cc.in2p3.fr) we prepared a binary distribution of LSST stack to be used through CernVM FS. You will find below the procedure for installing CernVM FS and configuring it to use LSST software.
+CERN's CernVM FS is a software component which allow you to mount, in **read-only mode** a remote software repository, which will appear to your computer as if the software was locally installed. At [CC-IN2P3](http://cc.in2p3.fr) we prepared a binary distribution of LSST stack to be used through CernVM FS. You will find below the procedure for installing CernVM FS and configuring it to use the binary LSST software repository.
 
 Context and perspectives about this work can be found in [this presentation](https://speakerdeck.com/airnandez/experimenting-with-cernvm-fs-for-distributing-lsst-software).
 
@@ -53,7 +53,7 @@ The configuration of CernVM FS client to use the binary distribution of LSST sof
 
 * Create file `/etc/cvmfs/keys/lsst.in2p3.fr.pub`:
   
-  		$ cat > /etc/cvmfs/keys/lsst.in2p3.fr.pub <<-EOF
+  		# cat > /etc/cvmfs/keys/lsst.in2p3.fr.pub <<-EOF
   		-----BEGIN PUBLIC KEY-----
 		MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxpOBi4YSHya9NLFyjwko
 		1QGO0cEbcN6JKMht8bfqUOsH/gdov8sUIlZ3XOzAqwHmb/F76QbtaftDXrJqwCXF
@@ -69,7 +69,7 @@ The configuration of CernVM FS client to use the binary distribution of LSST sof
 			
 * Create the file `/etc/cvmfs/default.local`:
   		
-  		$ cat > /etc/cvmfs/default.local <<-EOF
+  		# cat > /etc/cvmfs/default.local <<-EOF
   		CVMFS_REPOSITORIES=lsst.in2p3.fr
   		CVMFS_QUOTA_LIMIT=20000
   		# Default cache directory is '/var/lib/cvmfs' but you can change it by uncommenting
@@ -85,10 +85,10 @@ The configuration of CernVM FS client to use the binary distribution of LSST sof
   		
 * Create file `/etc/cvmfs/config.d/lsst.in2p3.fr.conf`:
 
-   		$ cat > /etc/cvmfs/config.d/lsst.in2p3.fr.conf <<-EOF
-   		CVMFS_SERVER_URL=http://cccrnvmfs01.in2p3.fr/cvmfs/lsst.in2p3.fr
+   		# cat > /etc/cvmfs/config.d/lsst.in2p3.fr.conf <<-EOF
+   		CVMFS_SERVER_URL="http://cccrnvmfs01.in2p3.fr/cvmfs/lsst.in2p3.fr"
    		CVMFS_HTTP_PROXY="http://cctbcrnvmfsli01.in2p3.fr:3128"
-   		CVMFS_PUBLIC_KEY=/etc/cvmfs/keys/lsst.in2p3.fr.pub
+   		CVMFS_PUBLIC_KEY="/etc/cvmfs/keys/lsst.in2p3.fr.pub"
    		EOF
    		
 * Set the permissions of the files created in the previous steps:
@@ -124,7 +124,11 @@ In order to use the LSST software stack, you need to setup your environment for 
 		$ cd /cvmfs/lsst.in2p3.fr/software/x86_64-slc6/lsst-v9.2
 		$ source loadLSST.sh
 		
-Next you can test run the LSST demo, as documented [here](https://confluence.lsstcorp.org/display/LSWUG/Testing+the+Installation).
+Note that you don't need super-user privileges to use this distribution of the LSST software. For testing your installation you can run the LSST demo, as documented [here](https://confluence.lsstcorp.org/display/LSWUG/Testing+the+Installation).
+
+# Advanced usage
+Details on how to use this distribution mechanism for more advanced use cases are provided in the [Advanced Usage](AdvancedUsage.md) document. There you will find details on how you can develop your own software package which depends on other packages already present in the binary distribution.
+
 
 # Troubleshooting
 Please note that in order for this distribution mechanism to work for you, you need your machine to be connected to the network and able to contact CC-IN2P3 server. To check this is the case please do:
