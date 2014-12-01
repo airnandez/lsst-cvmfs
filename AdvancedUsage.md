@@ -18,13 +18,15 @@ First, you need to instruct EUPS to use a database on your `$HOME` directory, in
 	export EUPS_PATH=$HOME/eups
 	```
 	
-* Each time you want to work with a particular version of the stack do:
+* Each time you want to work with a particular version of the stack source its bootstrap script. For instance, for working with version 9.2 do:
 
 	```bash
-	$ source /cvmfs/lsst.in2p3.fr/software/x86_64-slc6/lsst-v9.2/loadLSST.sh
+	$ source /cvmfs/lsst.in2p3.fr/software/x86_64-slc6/lsst-v9.2/loadLSST.sh # for BASH users
 	```
 	
-  You may want to add this line to your shell profile.
+  Please note that there are versions of the `loadLSST.sh` bootstrap script to be used with other shell flavors (such as CSH, ZSH and KSH). Look in the same directory to see what is available for your version of interest. You may want to add this line to your shell profile so your environment is set for every session.
+  
+  After bootstraping your LSST environment, the value of the `$EUPS_PATH` variable will be modified to contain both your own path (i.e.  `$HOME/eups`) and the path of the binary distribution (i.e. `/cvmfs/lsst.in2p3.fr/software/x86_64-slc6/lsst-v9.2`).
   
 Once your environment is ready, you can start developing against the stack. Let's say you want to improve one of the packages of the stack, namely, `obs_cfht`, and your work is kept on a particular branch. You need first to checkout the relevant branch and instruct EUPS to use that package:
 
