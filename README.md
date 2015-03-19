@@ -25,7 +25,7 @@ To download the software from CERN's repository and install it, as `root` do:
    	# cd /tmp
 	# curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.19/cvmfs-2.1.19-1.el6.x86_64.rpm
 	# curl -O https://cvmrepo.web.cern.ch/cvmrepo/yum/cvmfs/EL/5/x86_64/cvmfs-keys-1.5-1.noarch.rpm
-	# yum install ./cvmfs-*.rpm
+	# yum install --assumeyes ./cvmfs-*.rpm
 
 ### Installing on Ubuntu 14.04 (64 bits)
 Some packages are either necessary or recommended on Ubuntu. To install them do (as `root`):
