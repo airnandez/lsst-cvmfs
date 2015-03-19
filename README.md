@@ -17,7 +17,7 @@ This method of distributing the software is particularly useful for individuals:
 Please note that you don't need special privileges to use the LSST software stack distributed in this way: any user on a pre-configured computer can use the software. However, in order to install and configure CernVM FS, a one-time process, you need super-user privileges on the target machine.
 	
 # Installation
-So far we have tested this installation on both Scientific Linux 6, Scientific Linux 7 and Ubuntu 14.04. It may work on other platforms but we haven't verified that.
+So far we have tested this installation on Scientific Linux 6, Scientific Linux 7 and Ubuntu 14.04. It may work on other platforms but we haven't verified that.
 
 ### Installing on Scientific Linux 6 and 7 (64 bits)
 To download the software from CERN's repository and install it, as `root` do:
