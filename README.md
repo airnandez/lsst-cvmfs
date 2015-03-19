@@ -1,7 +1,7 @@
 # Introduction
 This document provides the steb-by-step instructions to configure your computer to use the binary distribution of the [LSST](http://www.lsst.org) software stack using [CernVM FS](http://cernvm.cern.ch/portal/filesystem).
 
-CERN's CernVM FS is a software component which allow you to mount, in **read-only mode** a remote software repository, which will appear to your computer as if the software was locally installed. At [CC-IN2P3](http://cc.in2p3.fr) we prepared a binary distribution of LSST stack to be used through CernVM FS. You will find below the procedure for installing CernVM FS and configuring it to use the binary LSST software repository.
+CERN's CernVM FS is a software component which allow you to mount a remote software repository in **read-only mode**, which will appear to your computer as if the software was locally installed. At [CC-IN2P3](http://cc.in2p3.fr) we prepared a binary distribution of LSST stack to be used through CernVM FS. You will find below the procedure for installing CernVM FS and configuring it to use the binary LSST software repository.
 
 Context and perspectives about this work can be found in [this presentation](https://speakerdeck.com/airnandez/experimenting-with-cernvm-fs-for-distributing-lsst-software).
 
@@ -17,9 +17,9 @@ This method of distributing the software is particularly useful for individuals:
 Please note that you don't need special privileges to use the LSST software stack distributed in this way: any user on a pre-configured computer can use the software. However, in order to install and configure CernVM FS, a one-time process, you need super-user privileges on the target machine.
 	
 # Installation
-So far we have tested this installation on Scientific Linux 6, Scientific Linux 7 and Ubuntu 14.04. It may work on other platforms but we haven't verified that.
+So far we have tested this installation on Scientific Linux 6, Scientific Linux 7, CentOS 7 and Ubuntu 14.04. It may work on other platforms but we haven't verified that.
 
-### Installing on Scientific Linux 6 and 7 (64 bits)
+### Installing on Scientific Linux 6 and 7, CentOS 7 (64 bits)
 To download the software from CERN's repository and install it, as `root` do:
 
    	# cd /tmp
@@ -106,7 +106,7 @@ The configuration of CernVM FS client to use the binary distribution of LSST sof
 
 		# service autofs restart
 		
-* Configure `autofs` to start at boot time. On Scientific Linux do (as `root`):
+* Configure `autofs` to start at boot time. On Scientific Linux and CentOS do (as `root`):
 	
 		# chkconfig autofs on
 		
