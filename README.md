@@ -17,15 +17,15 @@ This method of distributing the software is particularly useful for individuals:
 Please note that you don't need special privileges to use the LSST software stack distributed in this way: any user on a pre-configured computer can use the software. However, in order to install and configure CernVM FS, a one-time process, you need super-user privileges on the target machine.
 	
 # Installation
-So far we have tested this installation on both Scientific Linux 6 and Ubuntu 14.04. It may work on other platforms but we haven't verified that.
+So far we have tested this installation on both Scientific Linux 6, Scientific Linux 7 and Ubuntu 14.04. It may work on other platforms but we haven't verified that.
 
-### Installing on Scientific Linux 6 (64 bits)
+### Installing on Scientific Linux 6 and 7 (64 bits)
 To download the software from CERN's repository and install it, as `root` do:
 
    	# cd /tmp
-	# curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.19/cvmfs-2.1.19-1.el5.x86_64.rpm
+	# curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.19/cvmfs-2.1.19-1.el6.x86_64.rpm
 	# curl -O https://cvmrepo.web.cern.ch/cvmrepo/yum/cvmfs/EL/5/x86_64/cvmfs-keys-1.5-1.noarch.rpm
-	# rpm -vi ./cvmfs-2.1.19-1.el5.x86_64.rpm  ./cvmfs-keys-1.5-1.noarch.rpm
+	# yum install ./cvmfs-*.rpm
 
 ### Installing on Ubuntu 14.04 (64 bits)
 Some packages are either necessary or recommended on Ubuntu. To install them do (as `root`):
