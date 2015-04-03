@@ -156,4 +156,4 @@ You should see a line containning `HTTP/1.0 200 OK` which indicates that your ma
   Yes, you can configure your container for automatically mounting a read-only file system with LSST software stack ready to use. Sébastien Binet did exactly this, so you can just use as is or as a baseline for your own containers. You will find all the details [here](https://github.com/hepsw/docks/tree/master/cvmfs-lsst).
 
 # Credits
-This work was done by Fabio Hernandez from [IN2P3/CNRS computing center](http://cc.inp3.fr) (Lyon, France) with very valuable help from Vanessa Hammar who set up the CernVM FS server and proxy infrastructure.
+This work was done by Fabio Hernandez from [IN2P3/CNRS computing center](http://cc.inp3.fr) (Lyon, France) with very valuable help from Vanessa Hamar who set up the CernVM FS server and proxy infrastructure.
