@@ -1,0 +1,10 @@
+CVMFS_REPOSITORIES=lsst.in2p3.fr
+
+# Default cache directory is '/var/lib/cvmfs' but you can change it by
+# uncommenting and customizing the line below. Make sure this directory
+# is on a local file system.
+# CVMFS_CACHE_BASE=/cvmfscache
+
+# Maximum amount (in Megabytes) of disk storage cvmfs will use to cache
+# the contents of the remote repositories.
+CVMFS_QUOTA_LIMIT=20000
