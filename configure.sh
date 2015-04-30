@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Configure this machine as a CernVM FS client to access LSST
 # software repository served by CC-IN2P3.
