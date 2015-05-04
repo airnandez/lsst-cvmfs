@@ -67,11 +67,11 @@ The configuration of CernVM FS client to use the binary distribution of LSST sof
 	
   You can tell the configuration process was successful if you don't see any error message.
 		
-* **[MacOS X 10.10 only]** On MacOS X 10.10, you need to manually mount the file system:
+* **[MacOS X only]** On MacOS X, you need to manually mount the file system:
 
 		$ /sbin/mount -t cvmfs lsst.in2p3.fr /cvmfs/lsst.in2p3.fr
 		
-	For unmounting it, do:
+	For unmounting do:
 	
 		$ /usr/bin/umount /cvmfs/lsst.in2p3.fr
 

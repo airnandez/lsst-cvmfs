@@ -41,7 +41,7 @@ chmod 0644 /etc/cvmfs/config.d/lsst.in2p3.fr.conf
 cp lsst.in2p3.fr.pub /etc/cvmfs/keys/lsst.in2p3.fr.pub
 chmod 0444 /etc/cvmfs/keys/lsst.in2p3.fr.pub
 
-# On Linux, check this configuration
+# On Linux, use 'cvmfs_config' to check the configuration
 thisOS=`uname`
 if [ "$thisOS" == "Linux" ]; then
     result=`/usr/bin/cvmfs_config chksetup`
@@ -52,6 +52,11 @@ if [ "$thisOS" == "Linux" ]; then
     fi
 fi
 
+# On MacOS X, create the mount directory
+if [ "$thisOS" == "Darwin" ]; then
+    mkdir -p /cvmfs/lsst.in2p3.fr
+fi
+
 # Check that we can reach the CernVM FS server
 source ./lsst.in2p3.fr.conf
 curl -s --proxy ${CVMFS_HTTP_PROXY} --head ${CVMFS_SERVER_URL} > /dev/null 2>&1
@@ -59,7 +64,6 @@ if [ $? -ne 0 ]; then
     echo "Cannot reach repository proxy server: $CVMFS_HTTP_PROXY"
     exit 1
 fi
-
 
 # On Linux, restart autofs
 if [ "$thisOS" == "Linux" ]; then
