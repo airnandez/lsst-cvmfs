@@ -56,7 +56,7 @@ At this point, you have installed the CernVM FS client software on your machine.
 # Configuration
 The configuration of CernVM FS client to use the binary distribution of LSST software served by CC-IN2P3 is a *one-time operation*. It needs to be performed by user `root`.
 
-* Clone this repository and run the provided configuration script. The configuration script needs super-user privileges for creating or modifying some configuration files under `/etc/cvmfs`. You must run it as `root`:
+* Clone this repository and run the provided configuration script. The configuration script needs super-user privileges for creating or modifying some configuration files under `/etc/cvmfs`:
 
 		$ cd /tmp
 		$ git clone https://github.com/airnandez/lsst-cvmfs.git
