@@ -12,12 +12,12 @@ With this method, you need to install and configure CernVM FS only once. Once th
 
 	/cvmfs/lsst.in2p3.fr
 	
-This method of distributing the software is particularly useful for individuals: you don't need to install each official LSST software release by hand on your personal computer, but rather to automatically mount and use the binary distributions prepared for your convenience.
+This method of distributing the software is particularly useful for individuals: you don't need to install each official LSST software release from sources on your personal computer, but rather to automatically mount and use the binary distributions prepared for your convenience.
 
-Please note that you don't need special privileges to *use* the LSST software stack distributed in this way: any user on a pre-configured computer can use the software. However, in order to *install* and configure CernVM FS, a one-time process, you need super-user privileges on the client machine.
+Please note that you don't need special privileges to *use* the LSST software stack distributed this way: any user on a pre-configured computer can use the software. However, in order to *install* and configure CernVM FS, a one-time process, you need super-user privileges on the client machine.
 	
 # Installation
-So far we have tested this installation on Scientific Linux 6, Scientific Linux 7, CentOS 7 and Ubuntu 14.04. It may work on other Linux platforms.
+So far we have succesfully tested this installation on MacOS X 10.10 Yosemite, Scientific Linux 6, Scientific Linux 7, CentOS 7 and Ubuntu 14.04. It may work on other Linux distributions.
 
 ### Installing on Scientific Linux 6 and 7, CentOS 7 (64 bits)
 To download the software from CERN's repository and install it, as `root` do:
@@ -39,6 +39,15 @@ Download and install CernVM FS (as `root`):
     # curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-keys/cvmfs-keys_1.5-1_all.deb
     # dpkg -i ./cvmfs-keys_1.5-1_all.deb  ./cvmfs_2.1.19_amd64.deb
     
+### Installing on MacOS X 10.10 Yosemite
+Download and install [this package](https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.20/cvmfs-2.1.20.pkg). Alternatively, you can do it manually if you prefer:
+
+   	$ cd /tmp
+	$ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.20/cvmfs-2.1.20.pkg
+	$ open cvmfs-2.1.20.pkg
+	
+Follow the instructions of the interactive installer. At the end of this process, you will have the client installed on your machine.
+
 
 # Configuration
 The configuration of CernVM FS client to use the binary distribution of LSST software served by CC-IN2P3 is a *one-time operation*. It needs to be performed by user `root`.
@@ -52,22 +61,31 @@ The configuration of CernVM FS client to use the binary distribution of LSST sof
 
 	After this step, among other things, an unprivileged user `cvmfs` is created in your computer and several configuration files with sensible default values are located under `/etc/cvmfs`.
 	
-  You can tell the configuration process was successful if you won't see any error message.
+  You can tell the configuration process was successful if you don't see any error message.
 		
-* **[Recommended]** The CernVM FS client uses `autofs` for atuomatically mounting and unmounting the file system exposing the LSST software repository when needed. We suggest you to configure `autofs` to start at boot time. On Scientific Linux and CentOS do (as `root`):
+* **[MacOS X 10.10 only]** On MacOS X 10.10, you need to manually mount the file system:
+
+		$ /sbin/mount -t cvmfs lsst.in2p3.fr /cvmfs/lsst.in2p3.fr
+		
+	For unmounting it, do:
 	
-		# chkconfig autofs on
-		
-	and on Ubuntu, do (as `root`):
+		$ /usr/bin/umount /cvmfs/lsst.in2p3.fr
+
+* **[Linux - recommended]** On Linux, the CernVM FS client uses `autofs` for automatically mounting and unmounting the file system exposing the LSST software repository when needed. We suggest you to configure the `autofs` service to start at boot time. On Scientific Linux and CentOS do:
 	
-		# sysv-rc-conf autofs on
+		$ sudo chkconfig autofs on
 		
+	and on Ubuntu, do:
+	
+		$ sudo sysv-rc-conf autofs on
+		
+
 Now you are ready to use the stack. See next section.
    		
 # Usage
-In order to use the LSST software stack, you need to setup your environment for a specific version for which there is a binary distribution available. For instance, to use LSST v9.2 do:
+In order to use the LSST software stack, you need to setup your environment for a specific version for which there is a binary distribution available. For instance, to use LSST `v10.1-rc3` do:
 
-		$ cd /cvmfs/lsst.in2p3.fr/software/linux-x86_64/lsst-v9.2
+		$ cd /cvmfs/lsst.in2p3.fr/software/linux-x86_64/lsst-v10.1-rc3
 		$ source loadLSST.sh
 		
 Note that you don't need super-user privileges to use this distribution of the LSST software. For testing your installation you can [run the LSST demo](https://confluence.lsstcorp.org/display/LSWUG/Testing+the+Installation).
@@ -77,17 +95,18 @@ At any moment, you can see what released are available for Linux-based machines 
 
 	/cvmfs/lsst.in2p3.fr/software/linux-x86_64
 	
-The releases for MacOS X will be availabe under:
+The releases for MacOS X are availabe under:
 
 	/cvmfs/lsst.in2p3.fr/software/darwin-x86_64
 	
 Currently you will find the releases presented in the table below:
 
 | Platform                | Available versions of LSST software |
-| ---------------------   |  ------------ |
-| Linux, x86_64, 64bits   |  v9.2, v10.1-rc3 |
-| Darwin, x86_64, 64bits  | v10.1-rc3 *(in preparation)* |
+| ---------------------   | ------------------- |
+| Linux, x86_64, 64bits   |   v9.2, v10.1-rc3   |
+| Darwin, x86_64, 64bits  |   v10.1-rc3         |
 
+For details on the platform each binary release was built on please refer the `README` file in the corresponding directory.
 
 # Advanced usage
 Details on how to use this distribution mechanism for more advanced use cases are provided in the [Advanced Usage](AdvancedUsage.md) document. There you will find details on how you can develop your own software package which depends on other packages already present in the binary distribution.
