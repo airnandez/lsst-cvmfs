@@ -25,10 +25,9 @@ fi
 # WARNING: make sure we don't overwrite any existing configuration, different
 # than ours
 if [ -e /etc/cvmfs/default.local ]; then
-    existing=`md5sum /etc/cvmfs/default.local | cut -b1-32`
-    ours=`md5sum default.local | cut -b1-32`
-    if [ "$existing" != "$ours" ]; then
-        echo "CernVM FS is already configured in this machine in a potentially incompatible way"
+    diff "/etc/cvmfs/default.local" "default.local" > /dev/null 2>&1
+    if [ $? -ne 0 ]; then
+        echo "CernVM FS seems to be already configured in this machine in a potentially incompatible way"
         echo "see file /etc/cvmfs/default.local"
         exit 1
     fi
@@ -42,28 +41,33 @@ chmod 0644 /etc/cvmfs/config.d/lsst.in2p3.fr.conf
 cp lsst.in2p3.fr.pub /etc/cvmfs/keys/lsst.in2p3.fr.pub
 chmod 0444 /etc/cvmfs/keys/lsst.in2p3.fr.pub
 
-# Check this configuration
-result=`/usr/bin/cvmfs_config chksetup`
-if [ "$result" != "OK" ]; then
-    echo "There was an error checking your CernVM FS configuration:"
-    echo $result
-    exit 1
+# On Linux, check this configuration
+thisOS=`uname`
+if [ "$thisOS" == "Linux" ]; then
+    result=`/usr/bin/cvmfs_config chksetup`
+    if [ "$result" != "OK" ]; then
+        echo "There was an error checking your CernVM FS configuration:"
+        echo $result
+        exit 1
+    fi
 fi
 
 # Check that we can reach the CernVM FS server
-source lsst.in2p3.fr.conf
-curl -s --proxy $CVMFS_HTTP_PROXY --head $CVMFS_SERVER_URL > /dev/null 2>&1
+source ./lsst.in2p3.fr.conf
+curl -s --proxy ${CVMFS_HTTP_PROXY} --head ${CVMFS_SERVER_URL} > /dev/null 2>&1
 if [ $? -ne 0 ]; then
     echo "Cannot reach repository proxy server: $CVMFS_HTTP_PROXY"
     exit 1
 fi
 
 
-# Restart autofs
-service autofs restart > /dev/null 2>&1
-if [ $? -ne 0 ]; then
-    echo "Could not restart autofs service"
-    exit 1
+# On Linux, restart autofs
+if [ "$thisOS" == "Linux" ]; then
+    service autofs restart > /dev/null 2>&1
+    if [ $? -ne 0 ]; then
+        echo "Could not restart autofs service"
+        exit 1
+    fi
 fi
 
 # Done
