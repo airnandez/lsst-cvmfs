@@ -40,13 +40,17 @@ Download and install CernVM FS:
     $ sudo dpkg -i ./cvmfs-keys_1.5-1_all.deb  ./cvmfs_2.1.19_amd64.deb
     
 ### Installing on MacOS X 10.10 Yosemite
-Download and install [this package](https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.20/cvmfs-2.1.20.pkg). Alternatively, you can do it manually if you prefer:
+1. Download and install the latest stable release of [FUSE for OS X](https://osxfuse.github.io/). This is a dependency of the CernVM FS client.
 
+2. Download and install [the CernVM FS client package](https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.20/cvmfs-2.1.20.pkg). Alternatively, you can do it manually if you prefer:
+
+	```
    	$ cd /tmp
 	$ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.20/cvmfs-2.1.20.pkg
 	$ open cvmfs-2.1.20.pkg
+	```
 	
-Follow the instructions of the interactive installer. At the end of this process, you will have the client installed on your machine.
+At this point, you have installed the CernVM FS client software on your machine. For configuring it please see the next section.
 
 
 # Configuration
