@@ -83,7 +83,7 @@ The configuration of CernVM FS client to use the binary distribution of LSST sof
 Now you are ready to use the stack. See next section.
    		
 # Usage
-In order to use the LSST software stack, you need to setup your environment for a specific version for which there is a binary distribution available. For instance, to use LSST `v10.1-rc3` do:
+In order to use the LSST software stack, you need to setup your environment for a specific version for which there is a binary distribution available. For instance, to use LSST `v10.1-rc3` on a Linux machine do:
 
 		$ cd /cvmfs/lsst.in2p3.fr/software/linux-x86_64/lsst-v10.1-rc3
 		$ source loadLSST.sh
