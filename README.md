@@ -20,24 +20,24 @@ Please note that you don't need special privileges to *use* the LSST software st
 So far we have succesfully tested this installation on MacOS X 10.10 Yosemite, Scientific Linux 6, Scientific Linux 7, CentOS 7 and Ubuntu 14.04. It may work on other Linux distributions.
 
 ### Installing on Scientific Linux 6 and 7, CentOS 7 (64 bits)
-To download the software from CERN's repository and install it, as `root` do:
+To download the software from CERN's repository and install it do:
 
-   	# cd /tmp
-	# curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.19/cvmfs-2.1.19-1.el6.x86_64.rpm
-	# curl -O https://cvmrepo.web.cern.ch/cvmrepo/yum/cvmfs/EL/5/x86_64/cvmfs-keys-1.5-1.noarch.rpm
-	# yum install --assumeyes ./cvmfs-*.rpm
+   	$ cd /tmp
+	$ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.19/cvmfs-2.1.19-1.el6.x86_64.rpm
+	$ curl -O https://cvmrepo.web.cern.ch/cvmrepo/yum/cvmfs/EL/5/x86_64/cvmfs-keys-1.5-1.noarch.rpm
+	$ sudo yum install --assumeyes ./cvmfs-*.rpm
 
 ### Installing on Ubuntu 14.04 (64 bits)
-Some packages are either necessary or recommended on Ubuntu. To install them do (as `root`):
+Some packages are either necessary or recommended on Ubuntu. To install them do:
 
-    # apt-get install autofs attr gdb git sysv-rc-conf
+    $ sudo apt-get install autofs attr gdb git sysv-rc-conf
     
-Download and install CernVM FS (as `root`):
+Download and install CernVM FS:
     
-    # cd /tmp
-    # curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.19/cvmfs_2.1.19_amd64.deb
-    # curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-keys/cvmfs-keys_1.5-1_all.deb
-    # dpkg -i ./cvmfs-keys_1.5-1_all.deb  ./cvmfs_2.1.19_amd64.deb
+    $ cd /tmp
+    $ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.19/cvmfs_2.1.19_amd64.deb
+    $ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-keys/cvmfs-keys_1.5-1_all.deb
+    $ sudo dpkg -i ./cvmfs-keys_1.5-1_all.deb  ./cvmfs_2.1.19_amd64.deb
     
 ### Installing on MacOS X 10.10 Yosemite
 Download and install [this package](https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.20/cvmfs-2.1.20.pkg). Alternatively, you can do it manually if you prefer:
@@ -102,9 +102,9 @@ The releases for MacOS X are availabe under:
 Currently you will find the releases presented in the table below:
 
 | Platform                | Available versions of LSST software |
-| ---------------------   | ------------------- |
-| Linux, x86_64, 64bits   |   v9.2, v10.1-rc3   |
-| Darwin, x86_64, 64bits  |   v10.1-rc3         |
+| ---------------------   | --------------------- |
+| Linux, x86_64, 64bits   |   `v9.2`, `v10.1-rc3` |
+| Darwin, x86_64, 64bits  |   `v10.1-rc3`         |
 
 For details on the platform each binary release was built on please refer the `README` file in the corresponding directory.
 
