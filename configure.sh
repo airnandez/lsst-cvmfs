@@ -11,15 +11,15 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
-# Exit on error
-set -e
-
 # Run CernVM FS configuration
 if [ ! -x /usr/bin/cvmfs_config ]; then
     echo "Could not find CernVM FS configuration tool"
     exit 1
 fi
 /usr/bin/cvmfs_config setup
+if [ $? -ne 0 ]; then
+    exit 1
+fi
 
 # Configure CernVM FS
 # WARNING: make sure we don't overwrite any existing configuration, different
