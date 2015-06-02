@@ -90,7 +90,7 @@ Now you are ready to use the stack. See next section.
 In order to use the LSST software stack, you need to bootstrap your environment for a specific version of the LSST software for which a binary distribution is available. For instance, to use LSST `v10.1` on a Linux machine do:
 
 		$ cd /cvmfs/lsst.in2p3.fr/software/linux-x86_64/lsst-v10.1
-		$ source loadLSST.sh
+		$ source loadLSST.bash
 
 Note that you don't need super-user privileges to use this distribution of the LSST software. You may want to test your installation by [running the LSST demo](https://confluence.lsstcorp.org/display/LSWUG/Testing+the+Installation).
 
