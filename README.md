@@ -108,7 +108,7 @@ Currently you will find the releases presented in the table below:
 | Platform                | Available versions of LSST software |
 | ---------------------   | --------------------- |
 | Linux, x86_64, 64bits   |   `v9.2`, `v10.1-rc3`, `v10.1` |
-| Darwin, x86_64, 64bits  |   `v10.1-rc3`         |
+| Darwin, x86_64, 64bits  |   `v10.1-rc3`, `v10.1`         |
 
 For details on the platform each binary release was built on please refer to the `README` file in the corresponding directory.
 
