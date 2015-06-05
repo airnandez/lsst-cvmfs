@@ -119,7 +119,7 @@ Details on how to use this distribution mechanism for more advanced use cases ar
 # Troubleshooting
 Please note that in order for this distribution mechanism to work for you, you need your machine to be connected to the network and able to contact CC-IN2P3 server. To check this is the case please do:
 
-	$ curl --proxy http://cctbcrnvmfsli01.in2p3.fr:3128 --head http://cccrnvmfs01.in2p3.fr/cvmfs/lsst.in2p3.fr/.cvmfspublished
+	$ curl --proxy http://cccvmfssqdli01.in2p3.fr:3128 --head http://cccrnvmfs01.in2p3.fr/cvmfs/lsst.in2p3.fr/.cvmfspublished
 
 You should see a line containning `HTTP/1.0 200 OK` which indicates that your machine can talk to the relevant server.
 
