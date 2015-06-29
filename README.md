@@ -14,6 +14,10 @@ With this method, you need to install and configure CernVM FS only once. Once th
 
 This method of distributing the software is particularly useful for individuals: you don't need to install each official LSST software release from sources on your personal computer, but rather to automatically mount and use the binary distributions prepared for your convenience.
 
+The figure below shows the namespace and the releases currently available:
+
+![](namespace.png)
+
 Please note that you don't need special privileges to use the LSST software stack distributed this way: any user on a pre-configured computer can use the software. However, in order to install and configure CernVM FS, a one-time process, you need super-user privileges on the target machine.
 
 # Installation
