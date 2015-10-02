@@ -21,7 +21,7 @@ The figure below shows the namespace and the releases currently available:
 Please note that you don't need special privileges to use the LSST software stack distributed this way: any user on a pre-configured computer can use the software. However, in order to install and configure CernVM FS, a one-time process, you need super-user privileges on the target machine.
 
 # Installation
-So far we have succesfully tested this installation on MacOS X 10.10 Yosemite, Scientific Linux 6, Scientific Linux 7, CentOS 7 and Ubuntu 14.04. It may work on other Linux distributions as well.
+We have succesfully tested several versions of the LSST software using this installation on MacOS X 10.10 Yosemite, Scientific Linux 6, Scientific Linux 7, CentOS 7 and Ubuntu 14.04. It may work on other Linux distributions as well.
 
 ### Installing on Scientific Linux 6 and 7, CentOS 7 (64 bits)
 To download the software from CERN's repository and install it do:
@@ -126,6 +126,8 @@ Please note that in order for this distribution mechanism to work for you, you n
 	$ curl --proxy http://cccvmfssqdli01.in2p3.fr:3128 --head http://cccrnvmfs01.in2p3.fr/cvmfs/lsst.in2p3.fr/.cvmfspublished
 
 You should see a line containning `HTTP/1.0 200 OK` which indicates that your machine can talk to the relevant server.
+
+Please also refer to the [known issues](https://github.com/airnandez/lsst-cvmfs/issues).
 
 # Frequently Asked Questions
 
