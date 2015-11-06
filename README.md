@@ -1,4 +1,20 @@
-# Introduction
+# Distribution of LSST software via CernVM FS
+
+## Table of contents
+
+* [Introduction](#introduction)
+* [Benefits](#benefits)
+* [Installation](#installation)
+* [Configuration](#configuration)
+* [Usage](#usage)
+* [Available releases](#available-releases)
+* [Advanced Usage](#advanced-usage)
+* [Troubleshooting](#troubleshooting)
+* [Frequently Asked Questions](#frequently-asked-questions)
+* [Credits](#credits)
+
+
+## Introduction
 This document provides the steb-by-step instructions to configure your computer to use the binary distribution of the [LSST](http://www.lsst.org) software stack using [CernVM FS](http://cernvm.cern.ch/portal/filesystem).
 
 CERN's CernVM FS is a software component which allow you to mount a remote software repository in **read-only mode**, which will appear to your computer as if the software was locally installed. At [CC-IN2P3](http://cc.in2p3.fr) we prepared a binary distribution of LSST stack to be used through CernVM FS. You will find below the procedure for installing CernVM FS and configuring it to use the binary LSST software repository.
@@ -7,7 +23,7 @@ Context and perspectives about this work can be found in [this presentation](htt
 
 **WARNING** : *please bear in mind that this work is experimental. Your feedback on how to improve it is very welcome. Scroll to the end of this document to know how you can provide feedback.*
 
-# Benefits
+## Benefits
 With this method, you need to install and configure CernVM FS only once. Once this is done, when your computer is connected to the network, you will find the available versions of the LSST software stack under the local directory:
 
 	/cvmfs/lsst.in2p3.fr
@@ -20,7 +36,7 @@ The figure below shows the namespace and the releases currently available:
 
 Please note that you don't need special privileges to use the LSST software stack distributed this way: any user on a pre-configured computer can use the software. However, in order to install and configure CernVM FS, a one-time process, you need super-user privileges on the target machine.
 
-# Installation
+## Installation
 We have succesfully tested several versions of the LSST software using this installation on MacOS X 10.10 Yosemite, Scientific Linux 6, Scientific Linux 7, CentOS 7 and Ubuntu 14.04. It may work on other Linux distributions as well.
 
 ### Installing on Scientific Linux 6 and 7, CentOS 7 (64 bits)
@@ -43,7 +59,7 @@ Download and install CernVM FS:
     $ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-keys/cvmfs-keys_1.5-1_all.deb
     $ sudo dpkg -i ./cvmfs-keys_1.5-1_all.deb  ./cvmfs_2.1.19_amd64.deb
 
-### Installing on MacOS X 10.10 Yosemite
+### Installing on OS X 10.9 Mavericks and 10.10 Yosemite
 * Download and install the latest stable release of [FUSE for OS X](https://osxfuse.github.io/). This is a dependency of the CernVM FS client.
 
 * Download and install [the CernVM FS client package](https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.20/cvmfs-2.1.20.pkg). Alternatively, you can do it manually if you prefer:
@@ -54,10 +70,10 @@ Download and install CernVM FS:
 	$ open cvmfs-2.1.20.pkg
 	```
 
-At this point, you have installed the CernVM FS client software on your machine. For configuring it please see the next section.
+At this point, you have installed the CernVM FS client software on your computer. For configuring it please see the next section.
 
 
-# Configuration
+## Configuration
 Configuring the CernVM FS client to use the binary distribution of LSST software served by CC-IN2P3 is a *one-time operation*:
 
 * Clone this repository and run the provided configuration script. The configuration script needs super-user privileges:
@@ -71,7 +87,7 @@ Configuring the CernVM FS client to use the binary distribution of LSST software
 
   You can tell the configuration process was successful if you don't see any error message.
 
-* **[MacOS X only]** On MacOS X, you need to manually mount the file system:
+* **[OS X only]** On OS X, you need to manually mount the file system:
 
 		$ sudo mount -t cvmfs lsst.in2p3.fr /cvmfs/lsst.in2p3.fr
 
@@ -90,7 +106,7 @@ Configuring the CernVM FS client to use the binary distribution of LSST software
 
 Now you are ready to use the stack. See next section.
 
-# Usage
+## Usage
 In order to use the LSST software stack, you need to bootstrap your environment for a specific version of the LSST software for which a binary distribution is available. For instance, to use LSST `v11.0` on a Linux machine do:
 
 		$ cd /cvmfs/lsst.in2p3.fr/software/linux-x86_64/lsst-v11.0
@@ -98,14 +114,14 @@ In order to use the LSST software stack, you need to bootstrap your environment 
 
 Note that you don't need super-user privileges to use this distribution of the LSST software. You may want to test your installation by [running the LSST demo](https://confluence.lsstcorp.org/display/LSWUG/Testing+the+Installation).
 
-# Available releases
-At any moment, you can see what releases are available for Linux-based machines by visiting the directory:
+## Available releases
+At any moment, you can see what releases are available for Linux-based machines by inspecting the directory:
 
-	/cvmfs/lsst.in2p3.fr/software/linux-x86_64
+	ls -l /cvmfs/lsst.in2p3.fr/software/linux-x86_64
 
-The releases for MacOS X are availabe under:
+You can list the releases available for OS X with the command:
 
-	/cvmfs/lsst.in2p3.fr/software/darwin-x86_64
+	ls -l /cvmfs/lsst.in2p3.fr/software/darwin-x86_64
 
 Currently you will find the releases presented in the table below:
 
@@ -116,11 +132,11 @@ Currently you will find the releases presented in the table below:
 
 For details on the platform each binary release was built on please refer to the `README` file in the corresponding directory.
 
-# Advanced usage
+## Advanced usage
 Details on how to use this distribution mechanism for more advanced use cases are provided in the [Advanced Usage](AdvancedUsage.md) document. There you will find details on how you can develop your own software package which depends on other packages already present in the binary distribution.
 
 
-# Troubleshooting
+## Troubleshooting
 Please note that in order for this distribution mechanism to work for you, you need your machine to be connected to the network and able to contact CC-IN2P3 server. To check this is the case please do:
 
 	$ curl --proxy http://cccvmfssqdli01.in2p3.fr:3128 --head http://cccrnvmfs01.in2p3.fr/cvmfs/lsst.in2p3.fr/.cvmfspublished
@@ -129,7 +145,7 @@ You should see a line containning `HTTP/1.0 200 OK` which indicates that your ma
 
 Please also refer to the [known issues](https://github.com/airnandez/lsst-cvmfs/issues).
 
-# Frequently Asked Questions
+## Frequently Asked Questions
 
 * **How can I provide feedback?**
 
@@ -147,5 +163,5 @@ Please also refer to the [known issues](https://github.com/airnandez/lsst-cvmfs/
 
   Yes, you can configure your container for automatically mounting a read-only file system with LSST software stack ready to use. Sébastien Binet did exactly this, so you can just use as is or as a baseline for your own containers. You will find all the details [here](https://github.com/hepsw/docks/tree/master/cvmfs-lsst).
 
-# Credits
+## Credits
 This work was done by Fabio Hernandez from [IN2P3/CNRS computing center](http://cc.inp3.fr) (Lyon, France) with very valuable help from Vanessa Hamar who set up the CernVM FS server and proxy infrastructure.
