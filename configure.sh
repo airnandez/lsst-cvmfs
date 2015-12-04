@@ -32,46 +32,38 @@ if [ -e /etc/cvmfs/default.local ]; then
         exit 1
     fi
 fi
-cp default.local /etc/cvmfs/default.local
-chmod 0644 /etc/cvmfs/default.local
+cp default.local /etc/cvmfs/default.local && \
+    chmod 0644 /etc/cvmfs/default.local
 
 # Configure the LSST repository and store its public key
-cp lsst.in2p3.fr.conf /etc/cvmfs/config.d/lsst.in2p3.fr.conf
-chmod 0644 /etc/cvmfs/config.d/lsst.in2p3.fr.conf
-cp lsst.in2p3.fr.pub /etc/cvmfs/keys/lsst.in2p3.fr.pub
-chmod 0444 /etc/cvmfs/keys/lsst.in2p3.fr.pub
+cp lsst.in2p3.fr.conf /etc/cvmfs/config.d/lsst.in2p3.fr.conf && \
+    chmod 0644 /etc/cvmfs/config.d/lsst.in2p3.fr.conf
 
-# On Linux, use 'cvmfs_config' to check the configuration
+rm -f /etc/cvmfs/keys/lsst.in2p3.fr.pub
+mkdir -p /etc/cvmfs/keys/in2p3.fr && \
+    cp lsst.in2p3.fr.pub /etc/cvmfs/keys/in2p3.fr/lsst.in2p3.fr.pub && \
+    chmod 0444 /etc/cvmfs/keys/in2p3.fr/lsst.in2p3.fr.pub
+
+# Perform system-specific tasks
 thisOS=`uname`
 if [ "$thisOS" == "Linux" ]; then
+    # Use 'cvmfs_config' to check the configuration
     result=`/usr/bin/cvmfs_config chksetup`
     if [ "$result" != "OK" ]; then
         echo "There was an error checking your CernVM FS configuration:"
         echo $result
         exit 1
     fi
-fi
 
-# On MacOS X, create the mount directory
-if [ "$thisOS" == "Darwin" ]; then
-    mkdir -p /cvmfs/lsst.in2p3.fr
-fi
-
-# Check that we can reach the CernVM FS server
-source ./lsst.in2p3.fr.conf
-curl -s --proxy ${CVMFS_HTTP_PROXY} --head ${CVMFS_SERVER_URL} > /dev/null 2>&1
-if [ $? -ne 0 ]; then
-    echo "Cannot reach repository proxy server: $CVMFS_HTTP_PROXY"
-    exit 1
-fi
-
-# On Linux, restart autofs
-if [ "$thisOS" == "Linux" ]; then
+    # Restart autofs
     service autofs restart > /dev/null 2>&1
     if [ $? -ne 0 ]; then
         echo "Could not restart autofs service"
         exit 1
     fi
+elif [ "$thisOS" == "Darwin" ]; then
+    # On MacOS X, create the mount directory
+    mkdir -p /cvmfs/lsst.in2p3.fr
 fi
 
 # Done
