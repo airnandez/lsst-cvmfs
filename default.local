@@ -7,4 +7,4 @@ CVMFS_REPOSITORIES=lsst.in2p3.fr
 
 # Maximum amount (in Megabytes) of disk storage cvmfs will use to cache
 # the contents of the remote repositories.
-CVMFS_QUOTA_LIMIT=15000
+CVMFS_QUOTA_LIMIT=10000
