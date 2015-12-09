@@ -43,8 +43,8 @@ We have succesfully tested several versions of the LSST software using this inst
 To download the software from CERN's repository and install it do:
 
    	$ cd /tmp
-	$ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.19/cvmfs-2.1.19-1.el6.x86_64.rpm
-	$ curl -O https://cvmrepo.web.cern.ch/cvmrepo/yum/cvmfs/EL/5/x86_64/cvmfs-keys-1.5-1.noarch.rpm
+	$ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.20/cvmfs-2.1.20-1.el6.x86_64.rpm
+	$ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-config/cvmfs-config-default-1.2-2.noarch.rpm
 	$ sudo yum install --assumeyes ./cvmfs-*.rpm
 
 ### Installing on Ubuntu 14.04 (64 bits)
@@ -55,8 +55,8 @@ Some packages are either necessary or recommended on Ubuntu. To install them do:
 Download and install CernVM FS:
 
     $ cd /tmp
-    $ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.19/cvmfs_2.1.19_amd64.deb
-    $ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-keys/cvmfs-keys_1.5-1_all.deb
+    $ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.20/cvmfs_2.1.20_amd64.deb
+    $ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-config/cvmfs-config-default_1.1-1_all.deb
     $ sudo dpkg -i ./cvmfs-keys_1.5-1_all.deb  ./cvmfs_2.1.19_amd64.deb
 
 ### Installing on OS X 10.9 Mavericks and 10.10 Yosemite
