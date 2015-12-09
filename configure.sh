@@ -24,9 +24,10 @@ fi
 # Configure CernVM FS
 # WARNING: make sure we don't overwrite any existing configuration, different
 # than ours
-if [ -e /etc/cvmfs/default.local ]; then
-    diff "/etc/cvmfs/default.local" "default.local" > /dev/null 2>&1
-    if [ $? -ne 0 ]; then
+localConfig="/etc/cvmfs/default.local"
+if [ -e ${localConfig} ]; then
+    repos=`grep CVMFS_REPOSITORIES ${localConfig} | sed s/CVMFS_REPOSITORIES=//g`
+    if [ -n $repos ] && [ $repos != "lsst.in2p3.fr" ]; then
         echo "CernVM FS seems to be already configured in this machine in a potentially incompatible way"
         echo "see file /etc/cvmfs/default.local"
         exit 1
