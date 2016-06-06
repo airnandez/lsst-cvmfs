@@ -50,7 +50,7 @@ To download the software from CERN's repository and install it do:
 ### Installing on Ubuntu 14.04 (64 bits)
 Some packages are either necessary or recommended on Ubuntu. To install them do:
 
-    $ sudo apt-get install autofs attr gdb git sysv-rc-conf
+    $ sudo apt-get install autofs attr gdb git sysv-rc-conf uuid libossp-uuid16
 
 Download and install CernVM FS:
 
@@ -58,9 +58,11 @@ Download and install CernVM FS:
     $ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.20/cvmfs_2.1.20_amd64.deb
     $ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-config/cvmfs-config-default_1.1-1_all.deb
     $ sudo dpkg -i ./cvmfs_2.1.20_amd64.deb  ./cvmfs-config-default_1.1-1_all.deb
+    
+*NOTE: this method has been reported to work also on Linux Mint v17.3*
 
-### Installing on OS X 10.9 Mavericks and 10.10 Yosemite
-* Download and install the latest stable release of [FUSE for OS X](https://osxfuse.github.io/). This is a dependency of the CernVM FS client.
+### Installing on OS X 10.9 Mavericks, 10.10 Yosemite, 10.11 El Capitan
+* Download and install the **latest stable** release of [FUSE for OS X](https://osxfuse.github.io/). This is a dependency of the CernVM FS client.
 
 * Download and install [the CernVM FS client package](https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.20/cvmfs-2.1.20.pkg). Alternatively, you can do it manually if you prefer:
 
@@ -109,10 +111,12 @@ Now you are ready to use the stack. See next section.
 ## Usage
 In order to use the LSST software stack, you need to bootstrap your environment for a specific version of the LSST software for which a binary distribution is available. For instance, to use LSST `v11.0` on a Linux machine do:
 
-		$ cd /cvmfs/lsst.in2p3.fr/software/linux-x86_64/lsst-v11.0
+		$ cd /cvmfs/lsst.in2p3.fr/software/linux-x86_64/lsst-v12.0.rc1
 		$ source loadLSST.bash
 
 Note that you don't need super-user privileges to use this distribution of the LSST software. You may want to test your installation by [running the LSST demo](https://confluence.lsstcorp.org/display/LSWUG/Testing+the+Installation).
+
+**NOTE**: *there are some known issues with some releases of the LSST software distributed via this channel, which may not work on all Linux distributions. See the [known issues](https://github.com/airnandez/lsst-cvmfs/issues) if you experience some problems and don't hesitate to provide feedback.*
 
 ## Available releases
 At any moment, you can see what releases are available for Linux-based machines by inspecting the directory:
@@ -126,9 +130,9 @@ You can list the releases available for OS X with the command:
 Currently you will find the releases presented in the table below:
 
 | Platform                | Available versions of LSST software |
-| ---------------------   | --------------------- |
-| Linux, x86_64, 64bits   |   `v9.2`, `v10.1`, `v11.0` |
-| Darwin, x86_64, 64bits  |   `v10.1`, `v11.0`         |
+| ---------------------   | ----------------------------------- |
+| Linux, x86_64, 64bits   |   `v10.1`, `v11.0`, `v12.0.rc1` |
+| Darwin, x86_64, 64bits  |   `v10.1`, `v11.0`, `v12.0.rc1` |
 
 For details on the platform each binary release was built on please refer to the `README` file in the corresponding directory.
 
