@@ -18,7 +18,7 @@ First, you need to instruct EUPS to use a database on your `$HOME` directory, in
 	export EUPS_PATH=$HOME/eups
 	```
 	
-* Each time you want to work with a particular version of the stack source its bootstrap script. For instance, for working with version `11.0` on a Linux machine do:
+* Each time you want to work with a particular version of the stack source its bootstrap script. For instance, for working with version `12.0` on a Linux machine do:
 
 	```bash
 	$ source /cvmfs/lsst.in2p3.fr/software/linux-x86_64/lsst-v12.0/loadLSST.bash
