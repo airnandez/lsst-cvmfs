@@ -111,7 +111,7 @@ Now you are ready to use the stack. See next section.
 ## Usage
 In order to use the LSST software stack, you need to bootstrap your environment for a specific version of the LSST software for which a binary distribution is available. For instance, to use LSST `v11.0` on a Linux machine do:
 
-		$ cd /cvmfs/lsst.in2p3.fr/software/linux-x86_64/lsst-v12.0.rc1
+		$ cd /cvmfs/lsst.in2p3.fr/software/linux-x86_64/lsst-v12.0
 		$ source loadLSST.bash
 
 Note that you don't need super-user privileges to use this distribution of the LSST software. You may want to test your installation by [running the LSST demo](https://confluence.lsstcorp.org/display/LSWUG/Testing+the+Installation).
@@ -131,8 +131,8 @@ Currently you will find the releases presented in the table below:
 
 | Platform                | Available versions of LSST software |
 | ---------------------   | ----------------------------------- |
-| Linux, x86_64, 64bits   |   `v10.1`, `v11.0`, `v12.0.rc1` |
-| Darwin, x86_64, 64bits  |   `v10.1`, `v11.0`, `v12.0.rc1` |
+| Linux, x86_64, 64bits   |   `v10.1`, `v11.0`, `v12.0` |
+| Darwin, x86_64, 64bits  |   `v10.1`, `v11.0`, `v12.0` |
 
 For details on the platform each binary release was built on please refer to the `README` file in the corresponding directory.
 
