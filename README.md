@@ -15,7 +15,7 @@
 
 
 ## Introduction
-This document provides the steb-by-step instructions to configure your computer to use the binary distribution of the [LSST](http://www.lsst.org) software stack using [CernVM FS](http://cernvm.cern.ch/portal/filesystem).
+This document provides the steb-by-step instructions to configure your computer to use the binary distribution of the [LSST science pipelines](https://pipelines.lsst.io) using [CernVM FS](http://cernvm.cern.ch/portal/filesystem).
 
 CERN's CernVM FS is a software component which allow you to mount a remote software repository in **read-only mode**, which will appear to your computer as if the software was locally installed. At [CC-IN2P3](http://cc.in2p3.fr) we prepared a binary distribution of LSST stack to be used through CernVM FS. You will find below the procedure for installing CernVM FS and configuring it to use the binary LSST software repository.
 
