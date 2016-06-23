@@ -109,12 +109,14 @@ Configuring the CernVM FS client to use the binary distribution of LSST software
 Now you are ready to use the stack. See next section.
 
 ## Usage
-In order to use the LSST software stack, you need to bootstrap your environment for a specific version of the LSST software for which a binary distribution is available. For instance, to use LSST `v12.0` on a Linux machine do:
+Once the software is installed and configured in your computer, a one-time process, you don't need super-user privileges to use the LSST software.
+
+In order to use the LSST science pipelines, you need first to bootstrap your environment for a specific version of the LSST software for which a binary distribution is available. For instance, to use LSST `v12.0` on a Linux machine do:
 
 		$ cd /cvmfs/lsst.in2p3.fr/software/linux-x86_64/lsst-v12.0
 		$ source loadLSST.bash
 
-Note that you don't need super-user privileges to use this distribution of the LSST software. You may want to test your installation by [running the LSST demo](https://confluence.lsstcorp.org/display/LSWUG/Testing+the+Installation).
+Now you are ready to test your installation by [downloading and running the demo project](https://pipelines.lsst.io/install/demo.html#download-the-demo-project).  
 
 **NOTE**: *there are some known issues with some releases of the LSST software distributed via this channel, which may not work on all Linux distributions. See the [known issues](https://github.com/airnandez/lsst-cvmfs/issues) if you experience some problems and don't hesitate to provide feedback.*
 
