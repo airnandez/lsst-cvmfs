@@ -113,7 +113,7 @@ Once the software is installed and configured in your computer, a one-time proce
 
 In order to use the LSST science pipelines, you need first to bootstrap your environment for a specific version of the LSST software for which a binary distribution is available. For instance, to use LSST `v12.1` on a Linux computer do:
 
-		$ cd /cvmfs/lsst.in2p3.fr/software/linux-x86_64/lsst-v12.1
+		$ cd /cvmfs/lsst.in2p3.fr/software/linux-x86_64/lsst-v13.0
 		$ source loadLSST.bash
 
 Now you are ready to test your installation by [downloading and running the demo project](https://pipelines.lsst.io/install/demo.html#download-the-demo-project).  
@@ -133,7 +133,7 @@ Currently you will find the releases presented in the table below:
 
 | Platform                | Available versions of LSST software |
 | ---------------------   | ----------------------------------- |
-| Linux, x86_64, 64bits   |   `v10.1`, `v11.0`, `v12.0`, `v12.1` |
+| Linux, x86_64, 64bits   |   `v10.1`, `v11.0`, `v12.0`, `v12.1`, `v13.0` |
 | Darwin, x86_64, 64bits  |   `v10.1`, `v11.0`, `v12.0`, `v12.1` |
 
 For details on the platform each binary release was built on please refer to the `README` file in the corresponding directory.
