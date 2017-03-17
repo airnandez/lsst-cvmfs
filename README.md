@@ -111,7 +111,7 @@ Now you are ready to use the stack. See next section.
 ## Usage
 Once the software is installed and configured in your computer, a one-time process, you don't need super-user privileges to use the LSST software.
 
-In order to use the LSST science pipelines, you need first to bootstrap your environment for a specific version of the LSST software for which a binary distribution is available. For instance, to use LSST `v12.1` on a Linux computer do:
+In order to use the LSST science pipelines, you need first to bootstrap your environment for a specific version of the LSST software for which a binary distribution is available. For instance, to use LSST `v13.0` on a Linux computer do:
 
 		$ cd /cvmfs/lsst.in2p3.fr/software/linux-x86_64/lsst-v13.0
 		$ source loadLSST.bash
