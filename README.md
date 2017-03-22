@@ -66,11 +66,11 @@ Download and install CernVM-FS:
 
 * Download and install [the CernVM-FS client package](https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.20/cvmfs-2.1.20.pkg). Alternatively, you can do it manually if you prefer:
 
-	```
-   	$ cd /tmp
-	$ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.20/cvmfs-2.1.20.pkg
-	$ open cvmfs-2.1.20.pkg
-	```
+```bash
+$ cd /tmp
+$ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.20/cvmfs-2.1.20.pkg
+$ open cvmfs-2.1.20.pkg
+```
 
 At this point, you have installed the CernVM-FS client software on your computer. For configuring it please see the next section.
 
