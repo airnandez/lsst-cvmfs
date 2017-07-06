@@ -39,12 +39,12 @@ Please note that you don't need special privileges to use the LSST software stac
 ## Installation
 We have succesfully tested several versions of the LSST software using this installation on MacOS X 10.10 Yosemite, Scientific Linux 6, Scientific Linux 7, CentOS 7 and Ubuntu 14.04. It may work on other Linux distributions as well.
 
-### Installing on Scientific Linux 6 and 7, CentOS 7 (64 bits)
+### Installing on CentOS 7 (64 bits)
 To download the software from CERN's repository and install it do:
 
    	$ cd /tmp
-	$ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.20/cvmfs-2.1.20-1.el6.x86_64.rpm
-	$ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-config/cvmfs-config-default-1.2-2.noarch.rpm
+	$ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.3.5/cvmfs-2.3.5-1.el7.centos.x86_64.rpm
+	$ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-config/cvmfs-config-none-1.0-2.noarch.rpm
 	$ sudo yum install --assumeyes ./cvmfs-*.rpm
 
 ### Installing on Ubuntu 14.04 (64 bits)
