@@ -55,9 +55,9 @@ Some packages are either necessary or recommended on Ubuntu. To install them do:
 Download and install CernVM-FS:
 
     $ cd /tmp
-    $ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.1.20/cvmfs_2.1.20_amd64.deb
-    $ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-config/cvmfs-config-default_1.1-1_all.deb
-    $ sudo dpkg -i ./cvmfs_2.1.20_amd64.deb  ./cvmfs-config-default_1.1-1_all.deb
+    $ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.3.5/cvmfs_2.3.5_amd64.deb
+    $ curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-config/cvmfs-config-none_1.0-2_all.deb
+    $ sudo dpkg -i ./cvmfs_2.3.5_amd64.deb ./cvmfs-config-none_1.0-2_all.deb
     
 *NOTE: this method has been reported to work also on Linux Mint v17.3*
 

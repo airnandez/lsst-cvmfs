@@ -48,6 +48,9 @@ mkdir -p /etc/cvmfs/keys/in2p3.fr && \
 # Perform system-specific tasks
 thisOS=`uname`
 if [ "$thisOS" == "Linux" ]; then
+    # Make /etc/cvmfs/domain.d to make 'cvmfs_config' happy
+    mkdir -p /etc/cvmfs/domain.d
+
     # Use 'cvmfs_config' to check the configuration
     result=`/usr/bin/cvmfs_config chksetup`
     if [ "$result" != "OK" ]; then
