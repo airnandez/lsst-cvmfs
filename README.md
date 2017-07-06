@@ -37,7 +37,7 @@ The figure below shows the namespace and the releases currently available:
 Please note that you don't need special privileges to use the LSST software stack distributed this way: any user on a pre-configured computer can use the software. However, in order to install and configure CernVM-FS, a one-time process, you need super-user privileges on the target machine.
 
 ## Installation
-We have succesfully tested several versions of the LSST software using this installation on MacOS X 10.10 Yosemite, Scientific Linux 6, Scientific Linux 7, CentOS 7 and Ubuntu 14.04. It may work on other Linux distributions as well.
+We have succesfully tested several versions of the LSST software using this installation on MacOS X 10.10 Yosemite, CentOS 7 and Ubuntu 14.04. It may work on other Linux distributions as well.
 
 ### Installing on CentOS 7 (64 bits)
 To download the software from CERN's repository and install it do:
@@ -97,7 +97,7 @@ Configuring the CernVM-FS client to use the binary distribution of LSST software
 
 		$ sudo umount /cvmfs/lsst.in2p3.fr
 
-* **[Linux - recommended]** On Linux, the CernVM-FS client uses `autofs` for automatically mounting and unmounting the file system. We recommend to configure the `autofs` service to start at boot time. On Scientific Linux and CentOS do:
+* **[Linux - recommended]** On Linux, the CernVM-FS client uses `autofs` for automatically mounting and unmounting the file system. We recommend to configure the `autofs` service to start at boot time. On CentOS do:
 
 		$ sudo chkconfig autofs on
 
