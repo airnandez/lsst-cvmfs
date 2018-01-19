@@ -5,6 +5,8 @@
 # This script can be run multiple times.
 # More information: https://github.com/airnandez/lsst-cvmfs
 
+CVMFS_CONFIG=$(command -v cvmfs_config)
+
 # We must run as 'root'
 if [ "$EUID" -ne 0 ]; then
     echo "Please run as root"
@@ -12,11 +14,11 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Run CernVM FS configuration
-if [ ! -x /usr/bin/cvmfs_config ]; then
+if [ ! -x $CVMFS_CONFIG ]; then
     echo "Could not find CernVM FS configuration tool"
     exit 1
 fi
-/usr/bin/cvmfs_config setup
+$CVMFS_CONFIG setup
 if [ $? -ne 0 ]; then
     exit 1
 fi
@@ -52,7 +54,7 @@ if [ "$thisOS" == "Linux" ]; then
     mkdir -p /etc/cvmfs/domain.d
 
     # Use 'cvmfs_config' to check the configuration
-    result=`/usr/bin/cvmfs_config chksetup`
+    result=`$CVMFS_CONFIG chksetup`
     if [ "$result" != "OK" ]; then
         echo "There was an error checking your CernVM FS configuration:"
         echo $result
