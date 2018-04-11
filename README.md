@@ -19,8 +19,6 @@ This document provides the steb-by-step instructions to configure your computer 
 
 CERN's CernVM-FS is a software component which allows you to mount a remote software repository in **read-only mode**. It will appear to your computer as if the software were locally installed. At [CC-IN2P3](http://cc.in2p3.fr) we prepared a binary distribution of the LSST stack to be used through CernVM-FS. You will find below the procedure for installing CernVM-FS and configuring it to use the binary LSST software repository.
 
-Context and perspectives about this work can be found in [this presentation](https://speakerdeck.com/airnandez/experimenting-with-cernvm-fs-for-distributing-lsst-software).
-
 **WARNING** : *please bear in mind that this work is experimental. Your feedback on how to improve it is very welcome. Scroll to the end of this document to know how you can provide feedback.*
 
 ## Benefits
@@ -111,9 +109,9 @@ Now you are ready to use the stack. See next section.
 ## Usage
 Once the software is installed and configured in your computer, a one-time process, you don't need super-user privileges to use the LSST software.
 
-In order to use the LSST science pipelines, you need first to bootstrap your environment for a specific version of the LSST software for which a binary distribution is available. For instance, to use LSST `v14.0` on a Linux computer do:
+In order to use the LSST science pipelines, you need first to bootstrap your environment for a specific version of the LSST software for which a binary distribution is available. For instance, to use LSST `v15.0` on a Linux computer do:
 
-		$ cd /cvmfs/lsst.in2p3.fr/software/linux-x86_64/lsst-v14.0
+		$ cd /cvmfs/lsst.in2p3.fr/software/linux-x86_64/lsst-v15.0
 		$ source loadLSST.bash
 
 Now you are ready to test your installation by [downloading and running the demo project](https://pipelines.lsst.io/install/demo.html#download-the-demo-project).  
@@ -133,8 +131,8 @@ Currently you will find the releases presented in the table below:
 
 | Platform                | Available versions of LSST software |
 | ---------------------   | ----------------------------------- |
-| Linux, x86_64, 64bits   |   `v10.1`, `v11.0`, `v12.0`, `v12.1`, `v13.0`, `v14.0` |
-| Darwin, x86_64, 64bits  |   `v10.1`, `v11.0`, `v12.0`, `v12.1`, `v14.0` |
+| Linux, x86_64, 64bits   |   `v10.1`, `v11.0`, `v12.0`, `v12.1`, `v13.0`, `v14.0`, `v15.0` |
+| Darwin, x86_64, 64bits  |   `v10.1`, `v11.0`, `v12.0`, `v12.1`, `v14.0`, `v15.0` |
 
 For details on the platform each binary release was built on please refer to the `README` file in the corresponding directory.
 
