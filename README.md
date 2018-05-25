@@ -1,5 +1,11 @@
 # Distribution of LSST software via CernVM-FS
 
+<br>
+<h3>
+Please refer to <a href="https://sw.lsst.eu">https://sw.lsst.eu</a> for un updated version of this service. This repository won't be updated anymore.
+</h3>
+<br>
+
 ## Table of contents
 
 * [Introduction](#introduction)
